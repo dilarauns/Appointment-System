@@ -1,0 +1,86 @@
+{% extends "main.html" %} {% load static %} {% block body_part %}
+
+<script src="{% static 'field/js/appointment.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+
+{% endblock %} {% block css_part %}
+
+<style>
+  sans-serif {
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 95%;
+    margin: 10% auto;
+    block-size: 100%;
+  }
+
+  .block-color {
+    background-color: red;
+  }
+  div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+
+    opacity: 0.6;
+  }
+
+  div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .txt {
+    width: 150px;
+    height: 40px;
+  }
+
+  .btn {
+    width: 150px;
+    height: 40px;
+
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .btn-submit {
+    background-color: #448014;
+    color: #1d1d1d;
+  }
+
+  .btn-reset {
+    background-color: #448014;
+    color: #1d1d1d;
+  }
+</style>
+
+{% endblock %} {% block title %} Randevu {% endblock %} {% block content %}
+<h1>appointment</h1>
+<div id="calendar"></div>
+
+<form action="{% url 'send_info'%}" method="POST">
+  {% csrf_token %}
+
+  <input
+    type="hidden"
+    id="selectedDateInput"
+    name="selectedDateInput"
+    value=""
+  />
+  <input class="txt" type="text" id="form" placeholder="numara" name="info" />
+  <input class="txt" type="text" id="name" placeholder="name" name="name" />
+  <input
+    class="txt"
+    type="text"
+    id="surname"
+    placeholder="surname"
+    name="surname"
+  />
+
+  <input class="btn btn-submit" type="submit" value="Randevu Oluştur" />
+  <input class="btn btn-reset" type="reset" value="Sil" />
+</form>
+
+{% endblock %} {% block jscodes %} {% endblock %}

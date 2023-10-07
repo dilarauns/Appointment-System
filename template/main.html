@@ -1,0 +1,165 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--add boostrapt css
+    <link rel="stylesheet"  href="{%static 'css/bootstrap.min.css' %}" />-->
+  <!-- related to all pages ==> css-->
+  <!--common side from css-->
+  <link rel="stylesheet" href="{%static 'css/base.css' %}" />
+  {% block body_part %} {% endblock %}
+  {% block css_part %} {% endblock %}
+  <!-- add boostrapt js
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>-->
+  <!-- related to all pages ==> js-->
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>{% block title %}{% endblock %} | FieldApp</title>
+  <!-- curly braks to create different css blocks
+
+    
+      <style>.navbar {
+
+        top: 20px;
+       
+        
+        }
+        
+        .nav-tabs > li > a {
+        color: #ffffff; /* Bağlantı yazı rengi (örnek: beyaz) */
+        }
+        
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:hover,
+        .nav-tabs > li.active > a:focus {
+        background-color: #234209; /* Aktif menü arka plan rengi (örnek: yeşil) */
+        color: #ffffff; /* Aktif menü yazı rengi (örnek: beyaz) */
+        }
+        
+        
+        
+        .custom-navbar {
+        background-color: #448014;
+        /* Özel arka plan rengi (örnek: mavi) */
+        color: #ffffff;
+        /* Yazı rengi (örnek: beyaz) */
+        }
+        </style>-->
+</head>
+
+<body>
+  <div class="row">
+    <!-- area for logo-->
+    <div class="col-sm-4">
+      <img src="{% static 'image/logo2.png' %}" alt="logo" width="300" height="150"
+        style="display: block; margin: 0 auto; border-style: inset" />
+    </div>
+
+    <div class="col-sm-5" style="max-width: 900px"></div>
+    <!--register part-->
+
+    <div class="col-sm-1 col-sm-offset-3;" style="max-width: 50px; max-height: 60px; margin-top: 92px">
+      <a href="tel:0354 217 3366">
+        <img src="{% static 'image/phonelogo.png' %}" alt="logo" width="30" height="30"
+          style="display: block; margin: initial" /></a>
+    </div>
+
+    <!--clickable phone logo-->
+    <div class="col-sm-1 col-sm-offset-3;" style="max-width: 60px; max-height: 60px; margin-top: 85px">
+      <a href="https://m.facebook.com/profile.php/?id=100063786950567&name=xhp_nt__fb__action__open_user">
+        <img src="{% static 'image/facebooklogo.png' %}" alt="logo" width="40" height="40"
+          style="display: block; margin: initial" /></a>
+    </div>
+
+    <!--clickable insta logo-->
+    <div class="col-sm-1 col-sm-offset-3;" style="max-width: 60px; max-height: 60px; margin-top: 90px">
+      <a href="https://www.instagram.com/bolukbasisportesisleri/">
+        <img src="{% static 'image/insta1.png' %}" alt="logo" width="30" height="30"
+          style="display: block; margin: initial" /></a>
+    </div>
+    <!--clickable facebook logo-->
+
+    <nav class="navbar  custom-navbar">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">
+            <a href="{% url 'index' %}" class="nav-text">ANASAYFA</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">
+            <a href="{% url 'services' %}" class="nav-text">HİZMETLER&nbsp;&nbsp;&nbsp;</a>
+          </li>
+
+          <li class="{% if request.resolver_match.url_name == 'subscription' %}active{% endif %}">
+            <a href="{% url 'subscription' %}" class="nav-text">ABONELİK&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'appointment' %}active{% endif %}">
+            <a href="{% url 'appointment' %}" class="nav-text">RANDEVU&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'photos' %}active{% endif %}">
+            <a href="{% url 'photos' %}" class="nav-text">FOTOĞRAFLAR&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'wedding' %}active{% endif %}">
+            <a href="{% url 'wedding' %}" class="nav-text">DÜĞÜN SALONU</a>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right" action="bot.py">
+          <div class="form-group">
+            <input type="text" name="search" placeholder="ARA" />
+          </div>
+          <button type="submit" class="btn btn-default">Ara</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <!--this part provide to access desired HTML features  -->
+  {% block content %} {% endblock %}
+
+  <!-- for common areas -->
+  {% block jscodes %}{% endblock %}
+  <footer class="footer-custom">
+    <div class="container text-center">
+      <div class="row">
+        <!-- area for logo-->
+        <div class="col-sm-6">
+          <a href="https://www.google.com/maps?q=39.8336,34.8241" class="custom-link" class="custom-footer-text">
+            <img src="{% static 'image/location.png' %}" alt="logo" width="50" height="50"
+              style="display: block; margin: 0 auto" />KONUM</a>
+        </div>
+
+        <div class="col-sm-6">
+          <img src="{% static 'image/wishes.png' %}" alt="logo" width="50" height="50"
+            style="display: block; margin: 0 auto" />
+
+          <div class="form-group" class="custom-footer-text">
+            
+            
+            
+            <form action="{% url 'send_message' %}" method="POST">
+              {% csrf_token %}
+              Dilek ve Önerileriniz
+              <input type="text"  class="form-control" placeholder="Dilek ve Önerileriniz" name="wishes" />
+
+              <button type="submit" class="btn btn-default">Gönder</button>
+            </form>
+          
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+h1{
+    font-size: 18;
+    /*border-bottom: 1px solid #19921d;*/
+  
+}
+
+.carousel-image {
+    display: block;
+    margin: 0 auto;
+   
+  }

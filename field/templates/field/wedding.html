@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% load static %}
+ 
+
+{% block body_part %}
+<style>
+    div.background {
+      background-color:#847d45;
+      border: 2px solid black;
+    }
+    
+    div.transbox {
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+    
+    div.transbox p {
+      margin: 5%;
+      font-weight: bold;
+      color: #000000;
+    }
+    </style>
+{% endblock %}
+
+
+{% block title %}fields{% endblock %}
+
+{% block content %}
+
+    <h1>wedding</h1>
+
+
+    <div class="background">
+        <div class="transbox">
+          <p>This is some text that is placed in the transparent box.</p>
+        </div>
+      </div>
+
+    <div class="col-sm-1 col-sm-offset-3;" style="max-width: 60px; max-height: 60px; margin-top: 90px">
+        <a href="https://www.instagram.com/bolukbasi_dugun_e.bolukbasi/">
+          <img src="{% static 'image/insta1.png' %}" alt="logo" width="30" height="30"
+            style="display: block; margin: initial" /></a>
+      </div>
+    {% endblock %}

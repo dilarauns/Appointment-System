@@ -1,0 +1,75 @@
+
+body{
+    background-color: #d5cdcd;
+}
+
+
+.container {
+    padding: 0.5% 100%;
+}
+
+.carousel-image {
+display: block;
+margin: 0 auto;
+
+}
+
+.navbar {
+
+top: 3%;
+
+
+}
+
+.nav-tabs > li > a {
+color: #ffffff;
+text-decoration: none 
+}
+
+.custom-navbar .nav-tabs  > li.active > a,
+.custom-navbar .nav-tabs > li.active > a:hover,
+.custom-navbar .nav-tabs  > li.active > a:focus {
+    text-decoration: none;
+background-color: #2f570f; 
+color: #ffffff; 
+}
+
+.nav-text{
+    font-size: 20px;
+
+}
+
+
+
+.custom-navbar {
+background-color: #448014;
+
+color: #ffffff;
+
+}
+
+
+.footer-custom{
+background-color: #448014;
+width: 100%;
+color: #ffffff;
+}
+
+.custom-link {
+color:  #ffffff; /* Fare üzerine gelindiğinde renk değişimi */
+text-decoration: none;
+}
+
+
+.custom-link:hover {
+    color:  #ffffff;
+    text-decoration: line; /* Fare üzerine gelindiğinde altı çizgi eklenir */
+}
+
+.custom-footer-text{
+    text-align: left;
+    margin: 0 auto;
+    font-size: 24px;
+
+
+}  

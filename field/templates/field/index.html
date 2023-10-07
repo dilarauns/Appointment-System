@@ -1,0 +1,28 @@
+
+{% extends "main.html" %}
+{% load static %}
+
+
+{% block css_part %}
+
+<!--process different parts for css-->
+<link rel="stylesheet" href="{% static 'field/css/style.css' %}">
+{% endblock %}
+
+{% block title %}HomePage{% endblock %}
+
+
+
+
+
+{% block content %}
+
+   
+<!-- process to add image-->
+
+
+    {% endblock %}
+<!--to reach specific js code into js folder-->
+    {% block jscodes %}
+    <script src="{% static 'field/js/jsfolder.js' %}"></script>
+    {% endblock %}
