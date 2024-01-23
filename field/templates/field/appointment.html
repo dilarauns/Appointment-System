@@ -1,7 +1,9 @@
 {% extends "main.html" %} {% load static %} {% block body_part %}
 
 <script src="{% static 'field/js/appointment.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+<script src="{% static 'field/js/index.global.min.js' %}"></script>
+<script src="{% static 'field/js/locales-all.min.js' %}"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script> -->
 
 {% endblock %} {% block css_part %}
 
@@ -9,12 +11,61 @@
   sans-serif {
     font-size: 14px;
   }
-
-  #calendar {
-    max-width: 95%;
-    margin: 10% auto;
-    block-size: 100%;
+  .modal-checkbox {
+    display: none;
   }
+  
+  .modal-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+   
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid white;
+  }
+  
+  .modal-checkbox:checked + .modal-content {
+    display: block;
+  }
+
+
+
+
+  #form{
+    display: none;
+  }
+  #calendar {
+    
+    margin: 5% auto;
+    block-size: 100%;
+    
+    width: 80%; 
+    height: 330px;
+    color: #000000;/*change time color*/
+    background: #ffffff;
+       
+  }
+
+  #calendar1 {
+    
+    margin: 5% auto;
+    block-size: 100%;
+    
+    width: 80%; 
+    height: 330px;
+    color: #000000;/*change time color*/
+    background: #ffffff;
+    
+  }
+  .block-color{
+    color: #448014;
+
+  }
+
+
 
   .block-color {
     background-color: red;
@@ -57,30 +108,62 @@
 </style>
 
 {% endblock %} {% block title %} Randevu {% endblock %} {% block content %}
-<h1>appointment</h1>
+
+
+
+<h2> SAHA 1</h2>
 <div id="calendar"></div>
+<div id="popupform" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Popup İçeriği Burada</p>
+    <form id="forminfo" action="{% url 'send_info'%}" method="POST" >
+      {% csrf_token %}
+      <input type="hidden" id="selectedDateInput" name="selectedDateInput" value="" />
+      <input class="txt" type="text" id="number" placeholder="numara" name="number" />
+      <input class="txt" type="text" id="name" placeholder="name" name="name" />
+      <input class="txt" type="text" id="surname" placeholder="surname" name="surname" />
+      <input class="btn btn-submit"  id="submit" name="submit" type="submit" value="Randevu Oluştur" />
+      <input class="btn btn-reset" id="reset" name="reset" type="reset" value="Sil" />
+    </form>
+  </div>
+</div>
 
-<form action="{% url 'send_info'%}" method="POST">
-  {% csrf_token %}
 
-  <input
-    type="hidden"
-    id="selectedDateInput"
-    name="selectedDateInput"
-    value=""
-  />
-  <input class="txt" type="text" id="form" placeholder="numara" name="info" />
-  <input class="txt" type="text" id="name" placeholder="name" name="name" />
-  <input
-    class="txt"
-    type="text"
-    id="surname"
-    placeholder="surname"
-    name="surname"
-  />
 
-  <input class="btn btn-submit" type="submit" value="Randevu Oluştur" />
-  <input class="btn btn-reset" type="reset" value="Sil" />
-</form>
 
-{% endblock %} {% block jscodes %} {% endblock %}
+
+
+  {% for randevu in veriler %}
+   <div class="blockdate"  datedata="{{randevu.tarih}}"></div>
+  {% endfor %}
+
+
+
+<h2> SAHA 2</h2>
+<div id="calendar1"></div>
+
+<div id="popupform1" class="modal">
+  <div class="modal-content">
+    <span class="close1">&times;</span>
+    <p>Popup İçeriği Burada</p>
+    <form id="forminfo1" action="{% url 'send_info1'%}" method="POST" >
+      {% csrf_token %}
+      <input type="hidden" id="selectedDateInput1" name="selectedDateInput1" value="" />
+      <input class="txt" type="text" id="number1" placeholder="numara" name="number1" />
+      <input class="txt" type="text" id="name1" placeholder="name" name="name1" />
+      <input class="txt" type="text" id="surname1" placeholder="surname" name="surname1" />
+      <input class="btn btn-submit" id="submit1" name="submit1" type="submit" value="Randevu Oluştur" />
+      <input class="btn btn-reset" id="reset1" name="reset1" type="reset" value="Sil" />
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %} 
+{% block jscodes %} {% endblock %}

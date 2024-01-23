@@ -26,36 +26,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>{% block title %}{% endblock %} | FieldApp</title>
-  <!-- curly braks to create different css blocks
-
-    
-      <style>.navbar {
-
-        top: 20px;
-       
-        
-        }
-        
-        .nav-tabs > li > a {
-        color: #ffffff; /* Bağlantı yazı rengi (örnek: beyaz) */
-        }
-        
-        .nav-tabs > li.active > a,
-        .nav-tabs > li.active > a:hover,
-        .nav-tabs > li.active > a:focus {
-        background-color: #234209; /* Aktif menü arka plan rengi (örnek: yeşil) */
-        color: #ffffff; /* Aktif menü yazı rengi (örnek: beyaz) */
-        }
-        
-        
-        
-        .custom-navbar {
+  
+  
+  
+  <style>
+    @media (max-width: 768px) {
+    .navbar {
         background-color: #448014;
-        /* Özel arka plan rengi (örnek: mavi) */
-        color: #ffffff;
-        /* Yazı rengi (örnek: beyaz) */
-        }
-        </style>-->
+        
+    }
+    .nav-text{
+      font-size: 12px;
+    }
+  }</style>
+ 
 </head>
 
 <body>

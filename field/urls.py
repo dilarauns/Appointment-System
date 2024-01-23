@@ -12,8 +12,9 @@ from. import views
 #The expression to be added to the end of the path is written in quotes.
 #this two url return homepage 
 urlpatterns = [
+    path('selecteddate/', views.selecteddate, name='selecteddate'),
     path('send_info/', views.send_info, name='send_info'),
-    
+    path('send_info1/', views.send_info1, name='send_info1'),
     path('send_message/', views.send_message, name='send_message'),
     
     path("", views.index),

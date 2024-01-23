@@ -5,7 +5,8 @@ class Randevu(models.Model):
     isim=models.CharField(max_length=50)
     soyisim=models.CharField(max_length=50)
 
-
+    def __str__(self):
+        return f"{self.tarih}\t{self.numara}\t{self.isim}\t{self.soyisim}"
 
 
 

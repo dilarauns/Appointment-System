@@ -7,6 +7,50 @@
 
 <!--process different parts for css-->
 <link rel="stylesheet" href="{% static 'field/css/style.css' %}">
+
+<style>
+    div.background {
+        
+      background-image:url("{% static 'image/homepageserophoto.jpg' %}");
+      background-size: cover; /* Resmi kaplayacak şekilde ayarlar */
+      border: 2px solid rgb(255, 255, 255);
+      height:500px ;
+      width: 95%;
+      margin: 0 auto;
+    }
+    
+    div.transbox {
+      
+      
+      background-color: #ffffff;
+      border: 2px solid rgb(255, 255, 255);
+      height:100% ;
+      width: 100%;margin: 0 auto;
+      opacity: 0.7;
+    }
+    
+    div.transbox h1 {
+      margin: 5%;
+    
+      color: #000000;
+      
+      font-size: 700%;
+      font-family:"Brush Script MT";
+      text-align: center;
+     
+    }
+    div.transbox p {
+        margin: 5%;
+        
+        color: #000000;
+        
+        font-size: 300%;
+        font-family:"Garamond, serif";
+        text-align: center;
+       
+      }
+    </style>
+
 {% endblock %}
 
 {% block title %}HomePage{% endblock %}
@@ -18,11 +62,27 @@
 {% block content %}
 
    
-<!-- process to add image-->
+<div class="background">
+    <div class="transbox">
+      <h1>Hayallerin peşinde</h1>
+      <p>Düğün, Nişan, Nikah, Sünnet Düğünü organizasyonlarınızı Bölükbaşı bünyesinde hayallerinize göre düzenleyin.</p>
+    </div>
+  </div>
+
+<div class="col-sm-1 col-sm-offset-3;" style="max-width: 60px; max-height: 60px; margin-top: 90px">
+    <a href="https://www.instagram.com/bolukbasi_dugun_e.bolukbasi/">
+      <img src="{% static 'image/insta1.png' %}" alt="logo" width="30" height="30"
+        style="display: block; margin: initial" /></a>
+  </div>
 
 
     {% endblock %}
+
+   
+
+
+
 <!--to reach specific js code into js folder-->
-    {% block jscodes %}
+{% block jscodes %}
     <script src="{% static 'field/js/jsfolder.js' %}"></script>
     {% endblock %}
